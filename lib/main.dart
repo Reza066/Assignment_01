@@ -175,4 +175,80 @@ class BookCard2 extends StatelessWidget {
     );
   }
 }
+class BookDetailsPage1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.orange[300],
+      appBar: AppBar(
+        backgroundColor: Colors.amber[800],
+        title: Text('Book Details'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Adventures of Huckleberry Finn',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Container(
+              width:double.infinity,
+              height: 250.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage( 'https://i.pinimg.com/474x/bb/ac/18/bbac18199774e7a372579e99fbbca0a5.jpg'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+            SizedBox(height: 18.0),
+            Text(
+              'Mark Twain',
+              style: TextStyle(fontSize: 18.0),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'A nineteenth-century boy from a Mississippi River town recounts his adventures as he travels '
+                  'down the river with a runaway slave, encountering a family involved in a feud, two scoundrels '
+                  'pretending to be royalty, and Tom Sawyers aunt who mistakes him for Tom..',
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 16.0),
+            DropdownButton<String>(
+              items: <String>['Classic', 'Fiction', 'Adventure', 'Nobel']
+                  .map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+              },
+              hint: Text('Select',style:TextStyle(color:Colors.black),),
+            ),
+            SizedBox(height: 32.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  fixedSize:Size(100, 50)
+              ),
+              child: Text('Go Back'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
