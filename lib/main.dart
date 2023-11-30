@@ -251,4 +251,81 @@ class BookDetailsPage1 extends StatelessWidget {
     );
   }
 }
+class BookDetailsPage2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text('Book Details'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Harry Potter and the Cursed Child - Parts One and Two',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Container(
+              width:double.infinity,
+              height: 250.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage('https://cdn.kobo.com/book-images/a753bdb9-a0b6-4013-9aa8-0b466e779fb3/353/569/90/False/harry-potter-and-the-cursed-child-parts-one-and-two-the-official-playscript-of-the-original-west-end-production.jpg'),
+                  fit: BoxFit.fitHeight,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+            SizedBox(height: 18.0),
+            Text(
+              ' J.K. Rowling, Jack Thorne, John Tiffany ',
+              style: TextStyle(fontSize: 18.0),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'The official playscript of the original West End production of Harry Potter and the Cursed Child.'
+                  'This edition includes the final dialogue and stage directions of the originala conversation piece between director John Tiffany and playwright Jack Thornethe Potter family tree'
+                  'and a timeline of key events in the wizarding world leading up to Harry Potter and the Cursed Child.'
+                  ,
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 16.0),
+            DropdownButton<String>(
+              items: <String>['Classic', 'Fiction', 'Adventure', 'Nobel']
+                  .map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+              },
+              hint: Text('Select',style:TextStyle(color:Colors.black),),
+            ),
+            SizedBox(height: 40.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepOrange,foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                fixedSize:Size(100, 50)
+              ),
+              child: Text('Back'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
